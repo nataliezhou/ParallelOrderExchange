@@ -1,0 +1,49 @@
+
+11
+0 o
+1 o
+2 o
+3 o
+4 o
+5 o
+6 o
+7 o
+8 o
+9 o
+10 o
+# Test that orders within client are not reordered
+0 B 125 GOOG 2705 30
+0 S 132 OOPP 2705 30
+0 S 133 OOPP 2706 30
+# Test similar orders from other threads
+1 B 126 GOOG 2705 30
+2 B 127 GOOG 2705 30
+1 S 128 GOOG 2704 20
+# while matching keep adding orders
+5 B 136 GOOG 2705 30
+7 S 139 AMZN 2704 20
+6 B 134 GOOG 2705 30
+8 B 140 AMZN 2704 1
+# add from other thread as well
+0 B 138 GOOG 2705 30
+4 B 129 AMZN 2705 10
+5 S 130 GOOG 2704 20
+# test that prices are still prioritized same
+6 B 141 AMOO 5000 30
+4 B 142 AMOO 5001 10
+9 S 143 AMOO 2704 20
+#
+2 C 127
+4 C 129
+4 S 131 GOOG 2000 20
+0 x
+1 x
+2 x
+3 x
+4 x
+5 x
+6 x
+7 x
+8 x
+9 x
+10 x
