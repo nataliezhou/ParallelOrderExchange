@@ -17,5 +17,5 @@ Our order book is composed of individual instrument/side order books, stored loc
 
 Without a singleton order book, the fan-in/fan-out pattern is applied by using a multiplexer to multiplex orders from multiple clients onto multiple workers.
 
-#### Further explanation and architecture design is detailed within the Go directory.
+#### Further explanation and architecture design is detailed within the Go directory, where the main engine code is housed in engine.go.
 
